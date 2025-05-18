@@ -1,4 +1,6 @@
 import { Card } from "antd";
+import CustomButton from "./CustomButton";
+import { PlusOutlined } from "@ant-design/icons";
 
 const CustomCard = ({ name, description, price, category, stock, rating }) => (
   <Card
@@ -23,7 +25,12 @@ const CustomCard = ({ name, description, price, category, stock, rating }) => (
       <span>⭐ {rating}</span>
     </div>
 
-    <div className="text-primary font-bold text-base p-1 mt-auto">${price}</div>
+    <div className="flex justify-around mt-2">
+      <span className="text-primary font-bold text-base p-1 mt-auto">
+        ${price}
+      </span>
+      <CustomButton icon={<PlusOutlined />} title="Add to Cart" />
+    </div>
   </Card>
 );
 
