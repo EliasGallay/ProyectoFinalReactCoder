@@ -17,7 +17,6 @@ const CustomCard = ({ name, description, price, category, stock, rating }) => (
       <p className="text-gray-600 mb-2">{description}</p>
     </div>
 
-    {/* Fila con category, stock y rating */}
     <div className="flex justify-between text-sm text-gray-700 mb-2">
       <span>{category}</span>
       <span>Stock: {stock}</span>
