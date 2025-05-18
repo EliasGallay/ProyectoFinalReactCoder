@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "../services/ProductService";
-import ItemListContainer from "./ItemListContainer";
-import CustomSpinning from "./CustomSpinning";
+import CustomCard from "./CustomCard";
 
-const ItemList = () => {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getProducts()
-      .then((products) => {
-        setProducts(products);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error al cargar los productos", error);
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <CustomSpinning />;
-  }
-
-  if (error) {
-    return <div>Error al cargar los productos</div>;
-  }
-
-  return <ItemListContainer products={products} />;
+const ItemList = ({ products }) => {
+  return (
+    <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-gray-100 mt-5 rounded-md mx-auto max-w-screen-xl">
+      {products.map((product) => (
+        <CustomCard
+          key={product.id}
+          name={product.title}
+          description={product.description}
+          price={product.price}
+        />
+      ))}
+    </main>
+  );
 };
 
 export default ItemList;

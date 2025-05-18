@@ -1,10 +1,10 @@
 import Navbar from "./components/Navbar";
-import ItemList from "./components/ItemList";
+import ItemListContainer from "./components/ItemListContainer";
 function App() {
   return (
     <>
       <Navbar />
-      <ItemList />
+      <ItemListContainer />
     </>
   );
 }
