@@ -9,6 +9,13 @@ const CustomConfigProvider = ({ children }) => {
             colorPrimary: "#52c41a",
             size: "large",
           },
+          Button: {
+            colorPrimary: "#5cb85c",
+            colorPrimaryHover: "#6ed56e",
+            colorPrimaryActive: "#449d44",
+            colorPrimaryText: "#ffffff",
+            borderRadius: 6,
+          },
         },
       }}
     >
