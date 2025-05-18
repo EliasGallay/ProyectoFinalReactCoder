@@ -7,7 +7,18 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/81oJ5J9m4tL.jpg",
       "price": 500,
       "stock": 3,
-      "category": "Ficción"
+      "category": "Ficción",
+      "rating": 4.7
+    },
+    {
+      "id": 1,
+      "title": "El Alquimista",
+      "description": "La historia de un joven pastor llamado Santiago que emprende un viaje para encontrar un tesoro escondido en Egipto, descubriendo el verdadero significado de la vida.",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81oJ5J9m4tL.jpg",
+      "price": 500,
+      "stock": 3,
+      "category": "Ficción",
+      "rating": 4.3
     },
     {
       "id": 2,
@@ -16,7 +27,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/91p0zqS6MoL.jpg",
       "price": 600,
       "stock": 5,
-      "category": "No Ficción"
+      "category": "No Ficción",
+      "rating": 4.1
     },
     {
       "id": 3,
@@ -25,7 +37,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/91lB9tBF5DL.jpg",
       "price": 450,
       "stock": 2,
-      "category": "Literatura Infantil"
+      "category": "Literatura Infantil",
+      "rating": 4.9
     },
     {
       "id": 4,
@@ -34,7 +47,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/71kP7pN-oPL.jpg",
       "price": 700,
       "stock": 1,
-      "category": "Ficción"
+      "category": "Ficción",
+      "rating": 4.6
     },
     {
       "id": 5,
@@ -43,7 +57,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/71x-h4cb8iL.jpg",
       "price": 550,
       "stock": 4,
-      "category": "No Ficción"
+      "category": "No Ficción",
+      "rating": 3.8
     },
     {
       "id": 6,
@@ -52,7 +67,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/81H+g0l1m2L.jpg",
       "price": 400,
       "stock": 6,
-      "category": "Literatura Infantil"
+      "category": "Literatura Infantil",
+      "rating": 4.5
     },
     {
       "id": 7,
@@ -61,7 +77,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/81TAl1tI7tL.jpg",
       "price": 800,
       "stock": 3,
-      "category": "Ficción"
+      "category": "Ficción",
+      "rating": 4.8
     },
     {
       "id": 8,
@@ -70,7 +87,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/81nxZ2aIMyL.jpg",
       "price": 350,
       "stock": 7,
-      "category": "No Ficción"
+      "category": "No Ficción",
+      "rating": 3.9
     },
     {
       "id": 9,
@@ -79,7 +97,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/81-YF7g3hOL.jpg",
       "price": 600,
       "stock": 2,
-      "category": "Literatura Infantil"
+      "category": "Literatura Infantil",
+      "rating": 4.2
     },
     {
       "id": 10,
@@ -88,7 +107,8 @@
       "image": "https://images-na.ssl-images-amazon.com/images/I/81pHKb-V3gL.jpg",
       "price": 450,
       "stock": 5,
-      "category": "Ficción"
+      "category": "Ficción",
+      "rating": 4.4
     }
   ]
 }

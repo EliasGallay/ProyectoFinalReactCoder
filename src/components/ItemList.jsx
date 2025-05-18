@@ -9,6 +9,9 @@ const ItemList = ({ products }) => {
           name={product.title}
           description={product.description}
           price={product.price}
+          category={product.category}
+          stock={product.stock}
+          rating={product.rating}
         />
       ))}
     </main>
