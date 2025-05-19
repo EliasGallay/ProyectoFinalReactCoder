@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/ProductService";
 import CustomSpinning from "./CustomSpinning";
-import CustomCardDetail from "./CustomCardDetail";
+import CustomCardDetail from "./ItemDetailContainer";
 
 const ItemDetail = () => {
   const { id } = useParams();
