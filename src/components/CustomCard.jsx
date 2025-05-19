@@ -2,16 +2,20 @@ import { Card } from "antd";
 import CustomButton from "./CustomButton";
 import { PlusOutlined } from "@ant-design/icons";
 
-const CustomCard = ({ name, description, price, category, stock, rating }) => (
+const CustomCard = ({
+  name,
+  description,
+  price,
+  category,
+  stock,
+  rating,
+  image,
+}) => (
   <Card
     hoverable
     className="w-full max-w-xs flex flex-col justify-between "
     cover={
-      <img
-        alt="example"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-        className="object-cover h-64 w-full"
-      />
+      <img alt="example" src={image} className="object-cover w-full h-64" />
     }
     styles={{
       body: { display: "flex", flexDirection: "column", height: "100%" },

@@ -12,6 +12,7 @@ const ItemList = ({ products }) => {
           category={product.category}
           stock={product.stock}
           rating={product.rating}
+          image={product.image}
         />
       ))}
     </main>
