@@ -1,5 +1,7 @@
-import React from "react";
-import { Card, Rate, Tag } from "antd";
+import React, { useState } from "react";
+import { Card, Rate, Tag, Button } from "antd";
+import CustomButton from "./CustomButton";
+import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
 const { Meta } = Card;
 
@@ -12,6 +14,20 @@ const ProductCard = ({
   category,
   rating,
 }) => {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    if (count < stock) {
+      setCount(count + 1);
+    }
+  };
+
+  const decrement = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <Card
       hoverable
@@ -41,6 +57,14 @@ const ProductCard = ({
           {rating})
         </p>
       </div>
+
+      <div className="flex justify-between items-center mt-3 mb-3">
+        <Button icon={<MinusOutlined />} onClick={decrement} />
+        <div className="text-lg font-bold">{count}</div>
+        <Button icon={<PlusOutlined />} onClick={increment} />
+      </div>
+
+      <CustomButton title="Agregar al Carrito" icon={<PlusOutlined />} />
     </Card>
   );
 };
