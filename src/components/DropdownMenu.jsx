@@ -1,18 +1,19 @@
 import React from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { Button, Dropdown, Space } from "antd";
+import { Link } from "react-router-dom";
 
 const items = [
   {
-    label: "Ficcion",
+    label: <Link to="/categoria/ficcion">Ficción</Link>,
     key: "1",
   },
   {
-    label: "No Ficcion",
+    label: <Link to="/categoria/no-ficcion">No Ficción</Link>,
     key: "2",
   },
   {
-    label: "Literatura Infantil",
+    label: <Link to="/categoria/literatura-infantil">Literatura Infantil</Link>,
     key: "3",
   },
 ];
@@ -21,7 +22,7 @@ const App = () => (
   <Dropdown menu={{ items }}>
     <Button>
       <Space>
-        Categorias de Libros
+        Categorías de Libros
         <DownOutlined />
       </Space>
     </Button>
