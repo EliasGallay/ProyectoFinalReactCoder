@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Card, Rate, Tag, Button } from "antd";
 import CustomButton from "./CustomButton";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
@@ -63,8 +63,13 @@ const ProductCard = ({
         <div className="text-lg font-bold">{count}</div>
         <Button icon={<PlusOutlined />} onClick={increment} />
       </div>
-
-      <CustomButton title="Agregar al Carrito" icon={<PlusOutlined />} />
+      <div className="flex justify-between items-center">
+        <CustomButton
+          title="Agregar al Carrito"
+          className=""
+          icon={<PlusOutlined />}
+        />
+      </div>
     </Card>
   );
 };
