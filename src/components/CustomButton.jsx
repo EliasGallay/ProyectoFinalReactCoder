@@ -1,13 +1,13 @@
-import { Button, Flex } from "antd";
+import { Button } from "antd";
 
-const App = ({ title, icon }) => (
-  <Flex gap="small" vertical>
-    <Flex wrap gap="small">
-      <Button type="primary" icon={icon}>
-        {title}
-      </Button>
-    </Flex>
-  </Flex>
+const CustomButton = ({ title, icon }) => (
+  <Button
+    type="primary"
+    icon={icon}
+    className="flex-1 min-w-[110px] whitespace-nowrap"
+  >
+    {title}
+  </Button>
 );
 
-export default App;
+export default CustomButton;

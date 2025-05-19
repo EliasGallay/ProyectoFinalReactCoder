@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import DropdownMenu from "./DropdownMenu";
 const Navbar = () => {
@@ -6,7 +7,9 @@ const Navbar = () => {
       <div className="text-lg font-bold">My Website</div>
       <div className="flex space-x-4 items-center">
         <DropdownMenu />
-        <CartWidget />
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
       </div>
     </nav>
   );

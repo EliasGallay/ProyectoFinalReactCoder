@@ -8,16 +8,6 @@
       "price": 500,
       "stock": 3,
       "category": "Ficción",
-      "rating": 4.7
-    },
-    {
-      "id": 1,
-      "title": "El Alquimista",
-      "description": "La historia de un joven pastor llamado Santiago que emprende un viaje para encontrar un tesoro escondido en Egipto, descubriendo el verdadero significado de la vida.",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/81oJ5J9m4tL.jpg",
-      "price": 500,
-      "stock": 3,
-      "category": "Ficción",
       "rating": 4.3
     },
     {
@@ -109,6 +99,16 @@
       "stock": 5,
       "category": "Ficción",
       "rating": 4.4
+    },
+    {
+      "id": 11,
+      "title": "El Hombre en Busca de Sentido",
+      "description": "Un relato profundo y conmovedor sobre la búsqueda del sentido de la vida a través de la experiencia del autor en un campo de concentración",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81c5+0x1JtL.jpg",
+      "price": 500,
+      "stock": 4,
+      "category": "No Ficción",
+      "rating": 4.6
     }
   ]
 }
