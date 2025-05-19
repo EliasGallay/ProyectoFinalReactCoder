@@ -13,6 +13,7 @@ const ItemList = ({ products }) => {
           stock={product.stock}
           rating={product.rating}
           image={product.image}
+          id={product.id}
         />
       ))}
     </main>

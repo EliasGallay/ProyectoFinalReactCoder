@@ -1,6 +1,7 @@
 import { Card } from "antd";
 import CustomButton from "./CustomButton";
 import { PlusOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const CustomCard = ({
   name,
@@ -10,6 +11,7 @@ const CustomCard = ({
   stock,
   rating,
   image,
+  id,
 }) => (
   <Card
     hoverable
@@ -41,7 +43,13 @@ const CustomCard = ({
         </span>
 
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <CustomButton icon="📖" title="Detalles" />
+          <Link
+            to={`/product/${id}`}
+            className="flex-1"
+            style={{ display: "inline-flex" }}
+          >
+            <CustomButton icon="📖" title="Detalles" />
+          </Link>
           <CustomButton icon={<PlusOutlined />} title="Add to Cart" />
         </div>
       </div>
