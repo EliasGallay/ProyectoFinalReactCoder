@@ -43,11 +43,7 @@ const CustomCard = ({
         </span>
 
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <Link
-            to={`/product/${id}`}
-            className="flex-1"
-            style={{ display: "inline-flex" }}
-          >
+          <Link to={`/product/${id}`} className="flex-1 inline-flex">
             <CustomButton icon="📖" title="Detalles" />
           </Link>
           <CustomButton icon={<PlusOutlined />} title="Add to Cart" />
