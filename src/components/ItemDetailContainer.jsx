@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Card, Rate, Tag, Button } from "antd";
-import CustomButton from "./CustomButton";
-import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
+import { Card, Rate, Tag } from "antd";
+import ItemCount from "./ItemCount";
 
 const { Meta } = Card;
 
@@ -14,20 +12,6 @@ const ProductCard = ({
   category,
   rating,
 }) => {
-  const [count, setCount] = useState(1);
-
-  const increment = () => {
-    if (count < stock) {
-      setCount(count + 1);
-    }
-  };
-
-  const decrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  };
-
   return (
     <Card
       hoverable
@@ -42,34 +26,23 @@ const ProductCard = ({
     >
       <Meta title={title} description={description} />
 
-      <div className="mt-3">
+      <div className="mt-3 space-y-2">
         <p>
           <strong>Precio:</strong> ${price}
         </p>
         <p>
           <strong>Stock:</strong> {stock} unidades
         </p>
-        <p>
+        <div>
           <strong>Categoría:</strong> <Tag color="blue">{category}</Tag>
-        </p>
-        <p>
+        </div>
+        <div>
           <strong>Rating:</strong> <Rate disabled defaultValue={rating} /> (
           {rating})
-        </p>
+        </div>
       </div>
 
-      <div className="flex justify-between items-center mt-3 mb-3">
-        <Button icon={<MinusOutlined />} onClick={decrement} />
-        <div className="text-lg font-bold">{count}</div>
-        <Button icon={<PlusOutlined />} onClick={increment} />
-      </div>
-      <div className="flex justify-between items-center">
-        <CustomButton
-          title="Agregar al Carrito"
-          className=""
-          icon={<PlusOutlined />}
-        />
-      </div>
+      <ItemCount stock={stock} />
     </Card>
   );
 };
