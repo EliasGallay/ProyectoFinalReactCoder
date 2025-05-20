@@ -4,7 +4,7 @@ import ItemCount from "./ItemCount";
 
 const { Meta } = Card;
 
-const ProductCard = ({
+const ItemDetailContainer = ({
   title,
   description,
   image,
@@ -73,4 +73,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default ItemDetailContainer;
