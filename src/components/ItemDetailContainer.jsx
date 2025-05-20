@@ -15,13 +15,9 @@ const ProductCard = ({
   return (
     <Card
       hoverable
-      style={{ width: 280 }}
+      className="w-full max-w-md mx-auto"
       cover={
-        <img
-          alt={title}
-          src={image}
-          style={{ height: 180, objectFit: "cover" }}
-        />
+        <img alt={title} src={image} className="h-44 object-cover w-full" />
       }
     >
       <Meta title={title} description={description} />
