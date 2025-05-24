@@ -1,74 +1,86 @@
 import { useState } from "react";
-import { Input, Button, Checkbox, Form, message } from "antd";
+import CustomInput from "./CustomInput";
 
 const ContactForm = () => {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [checked, setChecked] = useState(false);
+  const [toast, setToast] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!nombre || !apellido || !email) {
-      message.warning("Los campos están vacíos");
+      setToast("Por favor completá todos los campos.");
       return;
     }
 
-    message.success(
-      `Registrado ${nombre} ${apellido} con el correo electrónico ${email}`,
-    );
+    setToast(`Registrado ${nombre} ${apellido} con el correo ${email}`);
+
+    setNombre("");
+    setApellido("");
+    setEmail("");
+    setChecked(false);
+
+    setTimeout(() => setToast(""), 3000);
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white shadow rounded space-y-4">
+    <div className="max-w-xl mx-auto p-6 bg-white shadow rounded space-y-4 relative mt-10">
       <h2 className="text-2xl font-bold text-center text-gray-700">
         Formulario de Contacto
       </h2>
 
-      <Form layout="vertical" onSubmitCapture={handleSubmit}>
-        <Form.Item label="Nombre" required>
-          <Input
-            placeholder="Tu nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-        </Form.Item>
+      {toast && (
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-green-100 text-green-800 px-4 py-2 rounded shadow text-sm">
+          {toast}
+        </div>
+      )}
 
-        <Form.Item label="Apellido" required>
-          <Input
-            placeholder="Tu apellido"
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
-          />
-        </Form.Item>
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <CustomInput
+          label="Nombre"
+          name="nombre"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+          placeholder="Tu nombre"
+        />
 
-        <Form.Item label="Correo electrónico" required>
-          <Input
-            type="email"
-            placeholder="tucorreo@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Item>
+        <CustomInput
+          label="Apellido"
+          name="apellido"
+          value={apellido}
+          onChange={(e) => setApellido(e.target.value)}
+          placeholder="Tu apellido"
+        />
 
-        <Form.Item>
-          <Checkbox
+        <CustomInput
+          label="Correo electrónico"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="tucorreo@example.com"
+        />
+
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
             checked={checked}
             onChange={(e) => setChecked(e.target.checked)}
-          >
-            Quiero suscribirme
-          </Checkbox>
-        </Form.Item>
+            className="accent-green-600"
+          />
+          <span>Quiero suscribirme</span>
+        </div>
 
-        <Button
-          type="primary"
-          htmlType="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700"
+        <button
+          type="submit"
+          className="w-full bg-green-600 text-white font-semibold py-2 rounded hover:bg-green-700 transition"
         >
           Enviar
-        </Button>
-      </Form>
+        </button>
+      </form>
     </div>
   );
 };
