@@ -26,16 +26,18 @@ const ItemDetail = () => {
   if (!product) return <p>Producto no encontrado</p>;
 
   return (
-    <CustomCardDetail
-      id={id}
-      title={product.title}
-      description={product.description}
-      price={product.price}
-      category={product.category}
-      stock={product.stock}
-      rating={product.rating}
-      image={product.image}
-    />
+    <main className="flex w-full container mx-auto mt-5 justify-center">
+      <CustomCardDetail
+        id={id}
+        title={product.title}
+        description={product.description}
+        price={product.price}
+        category={product.category}
+        stock={product.stock}
+        rating={product.rating}
+        image={product.image}
+      />
+    </main>
   );
 };
 

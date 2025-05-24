@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { Card, Rate, Tag, Button } from "antd";
-import CustomButton from "./CustomButton";
-import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import { Card, Rate, Tag, Modal } from "antd";
+import ItemCount from "./ItemCount";
 
 const { Meta } = Card;
 
-const ProductCard = ({
+const ItemDetailContainer = ({
   title,
   description,
   image,
@@ -14,59 +13,64 @@ const ProductCard = ({
   category,
   rating,
 }) => {
-  const [count, setCount] = useState(1);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const increment = () => {
-    if (count < stock) {
-      setCount(count + 1);
-    }
-  };
-
-  const decrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
+  const toggleModal = () => {
+    setIsModalVisible((prev) => !prev);
   };
 
   return (
-    <Card
-      hoverable
-      style={{ width: 280 }}
-      cover={
-        <img
-          alt={title}
-          src={image}
-          style={{ height: 180, objectFit: "cover" }}
-        />
-      }
-    >
-      <Meta title={title} description={description} />
+    <>
+      <Card
+        hoverable
+        className="w-full max-w-md mx-auto"
+        cover={
+          <img
+            alt={title}
+            src={image}
+            className="h-44 object-cover w-full cursor-pointer"
+            onClick={toggleModal}
+          />
+        }
+      >
+        <Meta title={title} description={description} />
 
-      <div className="mt-3">
-        <p>
-          <strong>Precio:</strong> ${price}
-        </p>
-        <p>
-          <strong>Stock:</strong> {stock} unidades
-        </p>
-        <p>
-          <strong>Categoría:</strong> <Tag color="blue">{category}</Tag>
-        </p>
-        <p>
-          <strong>Rating:</strong> <Rate disabled defaultValue={rating} /> (
-          {rating})
-        </p>
-      </div>
+        <div className="mt-3 space-y-2">
+          <p>
+            <strong>Precio:</strong> ${price}
+          </p>
+          <p>
+            <strong>Stock:</strong> {stock} unidades
+          </p>
+          <div>
+            <strong>Categoría:</strong> <Tag color="blue">{category}</Tag>
+          </div>
+          <div>
+            <strong>Rating:</strong> <Rate disabled defaultValue={rating} /> (
+            {rating})
+          </div>
+        </div>
 
-      <div className="flex justify-between items-center mt-3 mb-3">
-        <Button icon={<MinusOutlined />} onClick={decrement} />
-        <div className="text-lg font-bold">{count}</div>
-        <Button icon={<PlusOutlined />} onClick={increment} />
-      </div>
+        <ItemCount stock={stock} />
+      </Card>
 
-      <CustomButton title="Agregar al Carrito" icon={<PlusOutlined />} />
-    </Card>
+      <Modal
+        open={isModalVisible}
+        onCancel={() => setIsModalVisible(false)}
+        footer={null}
+        centered
+        width="auto"
+      >
+        <div className="flex justify-center items-center">
+          <img
+            src={image}
+            alt={title}
+            className="max-w-full max-h-[80vh] object-contain"
+          />
+        </div>
+      </Modal>
+    </>
   );
 };
 
-export default ProductCard;
+export default ItemDetailContainer;

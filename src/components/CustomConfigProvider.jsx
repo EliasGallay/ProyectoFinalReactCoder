@@ -16,6 +16,16 @@ const CustomConfigProvider = ({ children }) => {
             colorPrimaryText: "#ffffff",
             borderRadius: 6,
           },
+          Checkbox: {
+            colorPrimary: "#5cb85c",
+            colorPrimaryHover: "#6ed56e",
+            colorPrimaryActive: "#449d44",
+          },
+          Input: {
+            colorPrimary: "#5cb85c",
+            colorPrimaryHover: "#6ed56e",
+            colorPrimaryActive: "#449d44",
+          },
         },
       }}
     >
