@@ -24,7 +24,7 @@ No representa una plataforma comercial ni una tienda oficial, y parte de los con
 - Visualización de una lista de productos (libros) con detalles como imagen, categoría, calificación, precio y stock.
 - Navegación fluida entre secciones mediante rutas dinámicas.
 - Estilo responsivo adaptado a diferentes tamaños de pantalla.
-- Interacción básica como agregar al carrito o ver detalles del producto.
+- Interacción básica como agregar al carrito en funcion del stock, eliminar items o ver detalles del producto.
 
 ---
 
@@ -35,7 +35,6 @@ Este proyecto puede ser escalado para incluir:
 - Sistema de carrito de compras con persistencia local.
 - Integración con pasarelas de pago.
 - Panel de administración para gestión de productos.
-- Conexión con una base de datos para persistencia de datos reales.
 
 ---
 
