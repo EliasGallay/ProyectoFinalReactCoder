@@ -7,15 +7,19 @@ import { CartContext } from "../context/CartContext";
 
 const CustomCard = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { addToCart } = useContext(CartContext);
+  const { cart1, addToCart } = useContext(CartContext);
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
 
+  const cartProduct = cart1.find((item) => item.id === product.id);
+  const currentQuantity = cartProduct?.quantity || 0;
+  const isMaxStockReached = currentQuantity >= product.stock;
+
   const handleAddToCart = () => {
-    if (product.stock <= 0) {
-      message.warning("Este producto no tiene stock disponible.");
+    if (isMaxStockReached) {
+      message.warning("Ya agregaste la cantidad máxima disponible.");
       return;
     }
 
@@ -73,7 +77,7 @@ const CustomCard = ({ product }) => {
                   icon={<PlusOutlined />}
                   title="Add to Cart"
                   onClick={handleAddToCart}
-                  disabled={product.stock <= 0}
+                  disabled={isMaxStockReached}
                 />
               </div>
             </div>

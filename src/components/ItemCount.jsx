@@ -1,35 +1,40 @@
-import { useState } from "react";
-import { Button } from "antd";
+import { useState, useContext } from "react";
+import { Button, message } from "antd";
 import CustomButton from "./CustomButton";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
 
 const ItemCount = ({ stock, product }) => {
   const [count, setCount] = useState(1);
-  const { addToCart } = useContext(CartContext);
+  const { cart1, addToCart } = useContext(CartContext);
+
+  const cartProduct = cart1.find((item) => item.id === product.id);
+  const currentInCart = cartProduct?.quantity || 0;
+
+  const wouldExceedStock = currentInCart + count > stock;
 
   const handleAddToCart = () => {
-    if (count > stock) {
-      console.warn("No hay suficiente stock disponible");
+    if (wouldExceedStock) {
+      message.warning("No podés agregar más de lo disponible en stock.");
       return;
     }
 
     addToCart(product, count);
-    console.log("Producto agregado al carrito:", product);
+    message.success("Producto agregado al carrito.");
   };
+
   const increment = () => {
-    if (count < stock) {
+    if (count < stock - currentInCart) {
       setCount(count + 1);
-      console.log(count);
     }
   };
+
   const decrement = () => {
     if (count > 1) {
       setCount(count - 1);
-      console.log(count);
     }
   };
+
   return (
     <>
       <div className="flex justify-between items-center mt-3 mb-3">
@@ -42,6 +47,7 @@ const ItemCount = ({ stock, product }) => {
           title="Agregar al Carrito"
           icon={<PlusOutlined />}
           onClick={handleAddToCart}
+          disabled={wouldExceedStock}
         />
       </div>
     </>
