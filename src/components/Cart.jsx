@@ -13,8 +13,9 @@ const Cart = () => {
         <ul>
           {cart1.map((item, index) => (
             <li key={index}>
-              {item.name} - ${item.price}
+              {item.title} - ${item.price}
               <span> (Cantidad: {item.quantity})</span>
+              {console.log(item)}
             </li>
           ))}
         </ul>

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProducts } from "../services/ProductService";
 import CustomSpinning from "./CustomSpinning";
-import CustomCardDetail from "./ItemDetailContainer";
+import ItemDetailContainer from "./ItemDetailContainer";
 
 const ItemDetail = () => {
   const { id } = useParams();
@@ -27,16 +27,7 @@ const ItemDetail = () => {
 
   return (
     <main className="flex w-full container mx-auto mt-5 justify-center">
-      <CustomCardDetail
-        id={id}
-        title={product.title}
-        description={product.description}
-        price={product.price}
-        category={product.category}
-        stock={product.stock}
-        rating={product.rating}
-        image={product.image}
-      />
+      <ItemDetailContainer product={product} />
     </main>
   );
 };

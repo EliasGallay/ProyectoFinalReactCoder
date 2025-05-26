@@ -1,20 +1,11 @@
 import { useState, useContext } from "react";
-import { Card, Modal } from "antd";
+import { Card, Modal, message } from "antd";
 import CustomButton from "./CustomButton";
 import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext"; // 👈
+import { CartContext } from "../context/CartContext";
 
-const CustomCard = ({
-  name,
-  description,
-  price,
-  category,
-  stock,
-  rating,
-  image,
-  id,
-}) => {
+const CustomCard = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { addToCart } = useContext(CartContext);
 
@@ -23,18 +14,13 @@ const CustomCard = ({
   };
 
   const handleAddToCart = () => {
-    const product = {
-      id,
-      name,
-      description,
-      price,
-      category,
-      stock,
-      rating,
-      image,
-    };
-    addToCart(product);
-    console.log("Producto agregado al carrito:", product);
+    if (product.stock <= 0) {
+      message.warning("Este producto no tiene stock disponible.");
+      return;
+    }
+
+    addToCart(product, 1);
+    message.success("Producto agregado al carrito.");
   };
 
   return (
@@ -44,8 +30,8 @@ const CustomCard = ({
         className="w-full max-w-xs flex flex-col justify-between"
         cover={
           <img
-            alt={name}
-            src={image}
+            alt={product.name}
+            src={product.image}
             className="object-cover w-full h-64 cursor-pointer"
             onClick={toggleModal}
           />
@@ -57,24 +43,29 @@ const CustomCard = ({
         <div className="flex flex-col h-full">
           <div className="flex-1 flex flex-col justify-between">
             <div>
-              <h3 className="text-lg font-bold mb-2">{name}</h3>
-              <p className="text-gray-600 mb-3">{description}</p>
+              <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+              <p className="text-gray-600 mb-3">{product.description}</p>
             </div>
 
             <div className="flex justify-between text-sm text-gray-700 flex-wrap gap-1 mb-3">
-              <span className="font-medium text-gray-800">{category}</span>
-              <span>Stock: {stock}</span>
-              <span>⭐ {rating}</span>
+              <span className="font-medium text-gray-800">
+                {product.category}
+              </span>
+              <span>Stock: {product.stock}</span>
+              <span>⭐ {product.rating}</span>
             </div>
           </div>
 
           <div className="pt-2 border-t flex flex-col gap-2">
             <span className="block text-center text-lg font-semibold text-green-700 bg-green-100 px-3 py-1 rounded">
-              ${price}
+              ${product.price}
             </span>
 
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <Link to={`/product/${id}`} className="flex-1 inline-flex">
+              <Link
+                to={`/product/${product.id}`}
+                className="flex-1 inline-flex"
+              >
                 <CustomButton icon="📖" title="Detalles" />
               </Link>
               <div className="flex-1 inline-flex">
@@ -82,6 +73,7 @@ const CustomCard = ({
                   icon={<PlusOutlined />}
                   title="Add to Cart"
                   onClick={handleAddToCart}
+                  disabled={product.stock <= 0}
                 />
               </div>
             </div>
@@ -98,8 +90,8 @@ const CustomCard = ({
       >
         <div className="flex justify-center items-center">
           <img
-            src={image}
-            alt={name}
+            src={product.image}
+            alt={product.name}
             className="max-w-full max-h-[80vh] object-contain"
           />
         </div>
