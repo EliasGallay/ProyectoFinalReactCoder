@@ -29,6 +29,16 @@ const Cart = () => {
               ))}
             </ul>
           </section>
+          <div className="w-full max-w-2xl mx-auto bg-gray-50 p-4 rounded-lg shadow-sm flex justify-between items-center mb-6">
+            <span className="text-gray-600 font-medium">
+              ¿Faltó algún libro?
+            </span>
+            <Link to="/">
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-lg shadow">
+                Seguir comprando
+              </Button>
+            </Link>
+          </div>
           <section className="bg-white rounded-xl shadow-md p-6 mt-8 w-full max-w-2xl mx-auto">
             <div className="flex justify-between items-center border-b pb-4 mb-4">
               <h2 className="text-2xl font-semibold text-gray-800">
@@ -58,7 +68,7 @@ const Cart = () => {
                 type="primary"
                 className="bg-green-500 hover:bg-green-600 transition text-white font-semibold px-6 py-2 rounded-lg shadow"
               >
-                Finalizar Compra
+                Finalizar compra
               </Button>
             </div>
           </section>
