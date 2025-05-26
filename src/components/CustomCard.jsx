@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Card, Modal } from "antd";
 import CustomButton from "./CustomButton";
 import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext"; // 👈
 
 const CustomCard = ({
   name,
@@ -15,9 +16,25 @@ const CustomCard = ({
   id,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { addToCart } = useContext(CartContext); // 👈 acceder al context
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
+  };
+
+  const handleAddToCart = () => {
+    const product = {
+      id,
+      name,
+      description,
+      price,
+      category,
+      stock,
+      rating,
+      image,
+    };
+    addToCart(product); // 👈 agregamos al carrito
+    console.log("Producto agregado al carrito:", product); // 👈 para depuración
   };
 
   return (
@@ -60,7 +77,13 @@ const CustomCard = ({
               <Link to={`/product/${id}`} className="flex-1 inline-flex">
                 <CustomButton icon="📖" title="Detalles" />
               </Link>
-              <CustomButton icon={<PlusOutlined />} title="Add to Cart" />
+              <div className="flex-1 inline-flex">
+                <CustomButton
+                  icon={<PlusOutlined />}
+                  title="Add to Cart"
+                  onClick={handleAddToCart} // 👈 botón funcional
+                />
+              </div>
             </div>
           </div>
         </div>
