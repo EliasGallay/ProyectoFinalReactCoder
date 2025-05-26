@@ -41,6 +41,5 @@ Este proyecto puede ser escalado para incluir:
 
 ---
 
-> Proyecto realizado con fines educativos.  
-> Curso de React - Coderhouse 🚀
+> Proyecto realizado con fines educativos.  🚀
 
