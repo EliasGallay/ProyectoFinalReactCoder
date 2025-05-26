@@ -16,7 +16,7 @@ const CustomCard = ({
   id,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { addToCart } = useContext(CartContext); // 👈 acceder al context
+  const { addToCart } = useContext(CartContext);
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
@@ -33,8 +33,8 @@ const CustomCard = ({
       rating,
       image,
     };
-    addToCart(product); // 👈 agregamos al carrito
-    console.log("Producto agregado al carrito:", product); // 👈 para depuración
+    addToCart(product);
+    console.log("Producto agregado al carrito:", product);
   };
 
   return (
@@ -81,7 +81,7 @@ const CustomCard = ({
                 <CustomButton
                   icon={<PlusOutlined />}
                   title="Add to Cart"
-                  onClick={handleAddToCart} // 👈 botón funcional
+                  onClick={handleAddToCart}
                 />
               </div>
             </div>
