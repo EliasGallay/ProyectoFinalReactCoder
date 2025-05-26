@@ -1,3 +1,4 @@
+import React from "react";
 import CustomCard from "./CustomCard";
 
 const ItemList = ({ products }) => {
@@ -10,4 +11,4 @@ const ItemList = ({ products }) => {
   );
 };
 
-export default ItemList;
+export default React.memo(ItemList);
