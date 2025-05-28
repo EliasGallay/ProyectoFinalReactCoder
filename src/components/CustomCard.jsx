@@ -34,7 +34,7 @@ const CustomCard = ({ product }) => {
         className="w-full max-w-xs flex flex-col justify-between"
         cover={
           <img
-            alt={product.name}
+            alt={product.title}
             src={product.image}
             className="object-cover w-full h-64 cursor-pointer"
             onClick={toggleModal}
@@ -47,7 +47,7 @@ const CustomCard = ({ product }) => {
         <div className="flex flex-col h-full">
           <div className="flex-1 flex flex-col justify-between">
             <div>
-              <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+              <h3 className="text-lg font-bold mb-2">{product.title}</h3>
               <p className="text-gray-600 mb-3">{product.description}</p>
             </div>
 
@@ -95,7 +95,7 @@ const CustomCard = ({ product }) => {
         <div className="flex justify-center items-center">
           <img
             src={product.image}
-            alt={product.name}
+            alt={product.title}
             className="max-w-full max-h-[80vh] object-contain"
           />
         </div>
