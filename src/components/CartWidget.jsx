@@ -10,7 +10,6 @@ const CartWidget = () => {
   return (
     <div className="cursor-pointer">
       <Badge count={itemCount} offset={[0, 6]} size="large">
-        {console.log("Carrito de compras:", cart1)}
         <ShoppingCartOutlined className="text-4xl hover:!text-gray-400" />
       </Badge>
     </div>
